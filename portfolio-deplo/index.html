@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio</title>
+<meta name="description" content="Portfolio — Computer & Electrical Engineer, Software Developer, Data Analyst." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#0A0E14',
+          surface: '#111823',
+          surface2: '#161F2C',
+          line: '#22303F',
+          copper: '#E3A63E',
+          cyan: '#5EEAD4',
+          ink: '#E7ECF2',
+          muted: '#8B98AC',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0A0E14;
+    background-image:
+      linear-gradient(rgba(94,234,212,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(94,234,212,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: -1px -1px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  ::selection { background: #E3A63E; color: #0A0E14; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #0A0E14; }
+  ::-webkit-scrollbar-thumb { background: #22303F; border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2C3D50; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid #5EEAD4;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* hero circuit draw-in */
+  .trace {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: draw 1.8s ease-out forwards;
+  }
+  .trace-2 { animation-delay: .25s; }
+  .trace-3 { animation-delay: .5s; }
+  .trace-4 { animation-delay: .75s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .node {
+    opacity: 0;
+    transform: scale(.4);
+    animation: pop .5s cubic-bezier(.2,1.4,.4,1) forwards;
+  }
+  @keyframes pop { to { opacity: 1; transform: scale(1); } }
+
+  .hero-fade {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: rise .7s ease-out forwards;
+  }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  .skeleton {
+    background: linear-gradient(90deg, #111823 25%, #161F2C 37%, #111823 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+  }
+  @keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+  .row-link { transition: background-color .2s ease, border-color .2s ease; }
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 1px;
+    background: #E3A63E;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+</style>
+</head>
+
+<body class="bg-bg text-ink font-body antialiased min-h-screen">
+
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-surface focus:text-ink focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-40 border-b border-line/70 bg-bg/80 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <a href="#top" class="font-display font-semibold tracking-tight text-ink" id="brand-mark">
+        <span class="text-copper">&lt;</span><span id="nav-initials">YN</span><span class="text-copper">/&gt;</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 font-mono text-sm text-muted">
+        <a href="#about" class="nav-link hover:text-ink transition-colors">about</a>
+        <a href="#skills" class="nav-link hover:text-ink transition-colors">skills</a>
+        <a href="#projects" class="nav-link hover:text-ink transition-colors">projects</a>
+        <a href="#contact" class="nav-link hover:text-ink transition-colors">contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 border border-copper/40 text-copper hover:bg-copper hover:text-bg transition-colors font-mono text-sm px-4 py-2 rounded">
+          get in touch
+        </a>
+        <button id="menu-btn" class="md:hidden text-ink p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-line bg-bg">
+      <nav class="flex flex-col px-6 py-4 gap-4 font-mono text-sm text-muted">
+        <a href="#about" class="mobile-link hover:text-ink">about</a>
+        <a href="#skills" class="mobile-link hover:text-ink">skills</a>
+        <a href="#projects" class="mobile-link hover:text-ink">projects</a>
+        <a href="#contact" class="mobile-link hover:text-ink">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="top" class="relative pt-32 pb-24 md:pt-40 md:pb-32 border-b border-line/70 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-[1.15fr_.85fr] gap-14 items-center">
+
+        <div>
+          <div class="hero-fade flex items-center gap-3 mb-5" style="animation-delay:0s">
+            <span id="avatar-wrap" class="relative w-11 h-11 rounded-full border border-copper/50 bg-surface2 flex items-center justify-center overflow-hidden shrink-0">
+              <img id="avatar-img" src="" alt="" class="w-full h-full object-cover hidden" />
+              <span id="avatar-fallback" class="font-mono text-xs text-copper">ME</span>
+            </span>
+            <p class="font-mono text-xs text-cyan" id="hero-kicker">// portfolio / 2026</p>
+          </div>
+          <h1 class="hero-fade font-display font-semibold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] tracking-tight" style="animation-delay:.15s">
+            <span id="hero-name">Your Name</span><br/>
+            <span class="text-muted" id="hero-role">Computer &amp; Electrical Engineer</span>
+          </h1>
+          <p class="hero-fade mt-6 max-w-xl text-muted text-lg leading-relaxed" id="hero-tagline" style="animation-delay:.3s">
+            I build systems that sit between hardware and data.
+          </p>
+          <div class="hero-fade mt-9 flex flex-wrap items-center gap-4" style="animation-delay:.45s">
+            <a href="#projects" class="inline-flex items-center gap-2 bg-copper text-bg font-medium px-5 py-3 rounded hover:bg-[#f0b559] transition-colors">
+              View projects
+            </a>
+            <a href="#" id="resume-link" class="inline-flex items-center gap-2 border border-line text-ink px-5 py-3 rounded hover:border-cyan/60 hover:text-cyan transition-colors" target="_blank" rel="noopener">
+              Download resume
+            </a>
+          </div>
+          <p class="hero-fade mt-8 font-mono text-xs text-muted" id="hero-location" style="animation-delay:.6s">based in — · —</p>
+        </div>
+
+        <img src="images/my-photo.jpeg" alt="Mostafa Elsayed" style="width: 100%; max-width: 400px; height: auto; border-radius: 16px;">
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="border-b border-line/70">
+      <div class="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-28 grid md:grid-cols-[1.3fr_1fr] gap-16">
+
+        <div>
+          <h2 class="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-8">About</h2>
+          <div id="about-summary" class="space-y-5 text-muted leading-relaxed max-w-xl"></div>
+
+          <div class="mt-12">
+            <h3 class="font-mono text-xs text-cyan mb-4">education</h3>
+            <ul id="education-list" class="space-y-3"></ul>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="font-mono text-xs text-cyan mb-4">training &amp; practical courses</h3>
+            <ul id="trainings-list" class="space-y-3"></ul>
+          </div>
+        </div>
+
+        <!-- spec sheet -->
+        <div class="border border-line rounded-lg bg-surface/60 p-6 md:p-8 h-fit">
+          <p class="font-mono text-xs text-muted mb-6 pb-4 border-b border-line">specs / 01</p>
+          <dl id="spec-list" class="divide-y divide-line/70"></dl>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="border-b border-line/70">
+      <div class="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-28">
+        <h2 class="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-3">Skills</h2>
+        <p class="text-muted max-w-xl mb-12">Tools and disciplines I draw on, grouped the way I actually use them.</p>
+        <div id="skills-grid" class="grid sm:grid-cols-2 gap-x-12 gap-y-10"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="border-b border-line/70">
+      <div class="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-28">
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-12">
+          <div>
+            <h2 class="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-3">Projects</h2>
+            <p class="text-muted max-w-xl">A selection of things I've built — code available, demos where they exist.</p>
+          </div>
+          <div id="project-filters" class="flex flex-wrap gap-2 font-mono text-xs"></div>
+        </div>
+        <div id="projects-list" class="divide-y divide-line"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-32">
+        <div class="grid md:grid-cols-[1.2fr_1fr] gap-14 items-end">
+          <div>
+            <p class="font-mono text-xs text-cyan mb-5" id="contact-status">// available</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight leading-tight max-w-lg">
+              Have a project in mind, or just want to talk engineering and data?
+            </h2>
+            <a id="contact-email" href="#" class="inline-flex items-center gap-2 mt-8 text-copper hover:text-[#f0b559] text-lg border-b border-copper/40 hover:border-copper transition-colors w-fit">
+              your.email@example.com
+            </a>
+            <a id="contact-phone" href="https://wa.me/20106979502" target="_blank" class="block mt-3 font-mono text-sm text-muted hover:text-white transition-colors">+20 1069795024</a>
+          </div>
+          <div id="social-list" class="flex flex-col gap-3 font-mono text-sm"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-line/70">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-muted">
+      <p>&copy; <span id="year"></span> <span id="footer-name">Your Name</span></p>
+      <p>built with HTML, Tailwind CSS &amp; a JSON data layer</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
