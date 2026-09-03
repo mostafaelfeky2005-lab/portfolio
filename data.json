@@ -1,0 +1,80 @@
+{
+  "personal": {
+    "name": "Mostafa Elsayed Ali",
+    "initials": "ME",
+    "role": "Machine Learning Engineer & Data Analyst",
+    "subRole": "Software Developer & Data Analyst",
+    "tagline": "I build intelligent systems and data pipelines — from raw datasets to predictive machine learning models.",
+    "heroKicker": "Portfolio / 2026",
+    "location": "Ash Sharqiyah, Egypt",
+    "email": "mostafa.elfeky2005@gmail.com",
+    "phone": "+20 1069795024",
+    "avatarUrl": "images/my-photo.jpeg",
+    "resumeUrl": "assets/resume.pdf",
+    "availability": "Open to new opportunities"
+  },
+  "about": {
+    "summary": [
+      "I'm an engineering student in the Electrical and Computer Engineering department at Menoufia University, bridging the gap between core engineering systems and data-driven solutions.",
+      "My work focuses on machine learning, data analysis, and developing robust workflows using Python to extract meaningful insights and build predictive models.",
+      "Outside of coursework, I gain practical training through professional programs like NTI's AI for Business and build applied data science and security projects."
+    ],
+    "specs": [
+      { "label": "Discipline", "value": "Electrical & Computer Engineering" },
+      { "label": "Focus", "value": "Machine Learning & Data Science" },
+      { "label": "Based in", "value": "Ash Sharqiyah, Egypt" },
+      { "label": "Status", "value": "Open to new opportunities" }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. in Electrical and Computer Engineering",
+        "institution": "Faculty of Engineering in Shebin El Kom, Menoufia University",
+        "period": "2022 - 2027"
+      }
+    ],
+    "trainings": [
+      {
+        "name": "AI for Business Training Program",
+        "provider": "NTI (National Telecommunication Institute)",
+        "year": "2026",
+        "description": "Intensive training focused on Machine Learning, Deep Learning, and Data Analysis workflows."
+      }
+    ],
+    "skills": [
+      {
+        "category": "Data Science & Machine Learning",
+        "items": ["Python", "Pandas", "NumPy", "Scikit-learn", "Deep Learning", "Data Analysis"]
+      },
+      {
+        "category": "Programming & Software",
+        "items": ["C++", "Object-Oriented Programming", "Git & GitHub", "Streamlit"]
+      },
+      {
+        "category": "Security & Systems",
+        "items": ["Cybersecurity", "NIDS (Network Intrusion Detection)", "Data Visualization"]
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "NIDS (Network Intrusion Detection System)",
+      "description": "A cybersecurity-focused data project designed to detect network intrusions and anomalies using machine learning.",
+      "image": "images/pro-image.jpeg",
+      "tags": ["Python", "Machine Learning", "Cybersecurity", "Streamlit"],
+      "link": "https://nids-project-a6zbewsrftpwssr2bcser.streamlit.app/"
+    }
+  ]
+  ,
+  "socials": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/mostafaelfeky2005",
+      "display": "github.com/mostafaelfeky2005"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/mostafa-hussien-0738162bb",
+      "display": "linkedin.com/in/mostafa-hussien"
+    }
+  ]
+}
